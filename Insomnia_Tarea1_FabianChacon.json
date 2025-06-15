@@ -1,0 +1,324 @@
+type: collection.insomnia.rest/5.0
+name: Tarea1
+meta:
+  id: wrk_e10e86f6aeeb4af197ba6f1a64595b48
+  created: 1749947296525
+  modified: 1749947321938
+collection:
+  - name: Registrar Producto y Categoria
+    meta:
+      id: fld_937e2ac42edc40829ce1b0735c580ff3
+      created: 1749947367994
+      modified: 1749949698688
+      sortKey: -1749947387058
+    children:
+      - url: "{{ _.base_url }}products/category/4"
+        name: Productos
+        meta:
+          id: req_8af20e5b15094a00b841ac23db3bf2e7
+          created: 1749949313843
+          modified: 1749951070675
+          isPrivate: false
+          sortKey: -1749949313843
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "Scott X1",
+            	"description": "Bici marca Scott modelo X1",
+            	"price": 2000000.00,
+            	"quantity": 3
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}categories"
+        name: Categorias
+        meta:
+          id: req_4e48b0c9187749e58519e23515e56f6f
+          created: 1749949392285
+          modified: 1749950959967
+          isPrivate: false
+          sortKey: -1749949392285
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "Bicis",
+            	"description": "Aqui esta la categoria de bicis"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_dbfe19440f4a47039e8d6d41d90f6193',
+        'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+  - name: Actualizar Producto y Categoria
+    meta:
+      id: fld_a3f83a34d85c4b02a048651341e1ab77
+      created: 1749947386958
+      modified: 1749949764788
+      sortKey: -1749947386958
+    children:
+      - url: "{{ _.base_url }}categories/1"
+        name: Categorias
+        meta:
+          id: req_7b70e51a3a204d2a87a76dbb4b7cf6da
+          created: 1749950120533
+          modified: 1749952231621
+          isPrivate: false
+          sortKey: -1749950120533
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "Carros",
+            	"description": "Aqui esta la categoria de carros"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}products/1"
+        name: Productos
+        meta:
+          id: req_8a9182ebcf074bf38562a131130d720a
+          created: 1749950721011
+          modified: 1749950843285
+          isPrivate: false
+          sortKey: -1749950120433
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "Toyota Corolla",
+            	"description": "Carros marca toyota modelo corolla",
+            	"price": 15000000.00,
+            	"quantity": 8
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_dbfe19440f4a47039e8d6d41d90f6193',
+        'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+  - name: Borrar Producto y Categoria
+    meta:
+      id: fld_f068ee0019d44445a95f1f2e9662d6e0
+      created: 1749947403812
+      modified: 1749949769763
+      sortKey: -1749947365570.5
+    children:
+      - url: "{{ _.base_url }}categories/6"
+        name: Categorias
+        meta:
+          id: req_74e58987bf35435895d998b1f09961d0
+          created: 1749950568831
+          modified: 1749952011807
+          isPrivate: false
+          sortKey: -1749950568831
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}products/2"
+        name: Productos
+        meta:
+          id: req_971c2dbae3a041c4a92cd3996682e667
+          created: 1749950853418
+          modified: 1749951004931
+          isPrivate: false
+          sortKey: -1749950568731
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_dbfe19440f4a47039e8d6d41d90f6193',
+        'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+  - name: Listar Producto y Categoria
+    meta:
+      id: fld_e7fe693f7fd041e3bce1d67e2917f6ef
+      created: 1749947421174
+      modified: 1749949656357
+      sortKey: -1749947421174
+    children:
+      - url: "{{ _.base_url }}products"
+        name: Productos
+        meta:
+          id: req_9ea14f6f83a74dc3a05537c4b117d6dc
+          created: 1749947344183
+          modified: 1749949661618
+          isPrivate: false
+          sortKey: -1749947427588
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}categories"
+        name: Categorias
+        meta:
+          id: req_0ff32a4d744c4bb2af4ad4dd9ef50dfd
+          created: 1749948440790
+          modified: 1749950471979
+          isPrivate: false
+          sortKey: -1749947427688
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.base_url }}products/category/4/products"
+        name: Productos por Categoria ID
+        meta:
+          id: req_8e86f5bd6423486dbc87df6666404484
+          created: 1749949191925
+          modified: 1749950978837
+          isPrivate: false
+          sortKey: -1749947427388
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_dbfe19440f4a47039e8d6d41d90f6193',
+        'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+  - name: Login
+    meta:
+      id: fld_192d08ecc86043c1b2f89c468894fd68
+      created: 1749948043234
+      modified: 1749949635062
+      sortKey: -1749948043234
+    children:
+      - url: "{{ _.base_url }}auth/login"
+        name: "Login "
+        meta:
+          id: req_dbfe19440f4a47039e8d6d41d90f6193
+          created: 1749948046747
+          modified: 1749952270292
+          isPrivate: false
+          sortKey: -1749948212051
+        method: POST
+        body:
+          mimeType: application/json
+          text: |
+            {
+            	"email": "test.user@gmail.com", 
+            	"password": "user123"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    authentication:
+      type: bearer
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_7bb1d60cda7ddd7200de615119d5f23f7fb1558f
+    created: 1749947296527
+    modified: 1749947296527
+environments:
+  name: Base Environment
+  meta:
+    id: env_7bb1d60cda7ddd7200de615119d5f23f7fb1558f
+    created: 1749947296526
+    modified: 1749947934521
+    isPrivate: false
+  data:
+    base_url: http://localhost:8080/
