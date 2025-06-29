@@ -60,4 +60,22 @@ public class AuthRestController {
         return ResponseEntity.ok(loginResponse);
     }
 
+    @PostMapping("/signup")
+    public ResponseEntity<?> registerUser(@RequestBody User user) {
+        Optional<User> existingUser = userRepository.findByEmail(user.getEmail());
+        if (existingUser.isPresent()) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Email already in use");
+        }
+
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        Optional<Role> optionalRole = roleRepository.findByName(RoleEnum.USER);
+
+        if (optionalRole.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Role not found");
+        }
+        user.setRole(optionalRole.get());
+        User savedUser = userRepository.save(user);
+        return ResponseEntity.ok(savedUser);
+    }
+
 }
